@@ -23,13 +23,13 @@ class _HomeScreenState extends State<HomeScreen> {
   fetchAsuraManga() async {
     final webScraper = WebScraper(kBaseUrl);
 
-    if (await webScraper.loadWebPage('/manga/?status=&type=&order=popular')) {
-      mangaList = webScraper.getElement(
-          'div.wrapper > div.postbody > div.bixbox > div.mrgn > div.listupd > div.bs > div.bsx > a > div.limit > img ',
-          ['src', 'title']);
-      mangaLoaded=true;
-      print(mangaList);
-    }
+      if (await webScraper.loadWebPage('/manga/?status=&type=&order=popular')) {
+        mangaList = webScraper.getElement(
+            'div.wrapper > div.postbody > div.bixbox > div.mrgn > div.listupd > div.bs > div.bsx > a > div.limit > img',
+            ['src']);
+        mangaLoaded = true;
+        print(mangaList);
+      }
   }
 
   @override
